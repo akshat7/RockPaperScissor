@@ -12,6 +12,11 @@ var scissorBtn = document.getElementById("scissor")
 var btnDiv = document.getElementById("btn");
 
 var userSelect
+
+userValue = document.createElement("h3");
+computerValue = document.createElement("h3");
+resultDeclaration = document.createElement("h2");
+
 document.getElementById("btn").addEventListener("click", function (e) {
     if (e.target && e.target.matches("button")) {
 
@@ -30,22 +35,21 @@ document.getElementById("btn").addEventListener("click", function (e) {
         paperBtn.disabled = false
         scissorBtn.disabled = false
 
-        userValue = document.createElement("h3");
-        computerValue = document.createElement("h3");
 
-        userValue.textContent = "You selected: " + userSelect
+
+        userValue.textContent = "User selected: " + userSelect
         computerValue.textContent = "Computer selected: " + rpsList[computerSelect - 1]
 
-        btnDiv.appendChild(userValue);
-        btnDiv.appendChild(computerValue);
+        document.body.appendChild(userValue);
+        document.body.appendChild(computerValue);
 
-        resultDeclaration = document.createElement("h3");
+
         if (winner !== "Tie") {
             resultDeclaration.textContent = winner + " wins!"
         } else {
             resultDeclaration.textContent = "It's a tie!"
         }
-        btnDiv.appendChild(resultDeclaration);
+        document.body.appendChild(resultDeclaration);
     }
 })
 
